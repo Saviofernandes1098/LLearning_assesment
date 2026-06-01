@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solving One-Step Linear Equations</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --surface: #ffffff;
+      --surface-soft: #f9fafb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-subtle: #e5e7eb;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text-main);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 960px;
+      background: var(--surface);
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      padding: 24px 20px 28px;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem);
+      letter-spacing: -0.03em;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 800px) {
+      main { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .card {
+      background: var(--surface-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 18px;
+    }
+
+    .card h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    ol, ul { margin-left: 18px; }
+    li { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 4px; }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      padding: 7px 14px;
+      font-size: 0.9rem;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn.secondary {
+      background: #ffffff;
+      color: var(--accent);
+    }
+
+    .section-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      font-size: 0.88rem;
+      color: #713f12;
+    }
+
+    .subcard {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: #ffffff;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-right: 6px;
+    }
+
+    code {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.9em;
+      background: #e5e7eb;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .tiny {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <div class="tag">Mini Algebra Lesson</div>
+        <h1>Solving One-Step Linear Equations</h1>
+      </div>
+      <p>
+        Use this simple page to give learners a short pre‑test, three tiny lessons, and then a post‑test
+        on solving one‑step equations.
+      </p>
+    </header>
+
+    <main>
+      <!-- Left column: instructions & modules -->
+      <section class="card">
+        <h2>Lesson Flow</h2>
+        <h3>How to Use This Page</h3>
+        <ol>
+          <li>Open the <strong>Pre‑Test</strong> and answer the 5 questions.</li>
+          <li>Read the three short modules below (and watch the example videos, if included).</li>
+          <li>Have learners work a few practice problems on paper or a whiteboard.</li>
+          <li>Open the <strong>Post‑Test</strong> and answer the same 5 questions again.</li>
+        </ol>
+
+        <div class="btn-row">
+          <!-- Replace # with your actual Google Forms links -->
+          <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Open Pre‑Test (Google Form)</a>
+          <a class="btn secondary" href="#" target="_blank" rel="noopener noreferrer">Open Post‑Test (Google Form)</a>
+        </div>
+
+        <div class="section-note">
+          Tip: Use the same 5 questions for both pre‑ and post‑tests so you can measure learning gain
+          directly.
+        </div>
+
+        <div class="subcard">
+          <strong>Module 1 – What Are We Trying to Do?</strong><br />
+          Goal: Understand that solving an equation means getting the variable by itself on one side of the
+          equal sign (for example, turning <code>x - 3 = 8</code> into <code>x = 11</code>).
+        </div>
+
+        <div class="subcard">
+          <strong>Module 2 – Using Addition &amp; Subtraction</strong><br />
+          Show one or two worked examples such as <code>x + 5 = 12</code> and <code>y - 4 = 10</code>, writing
+          the “undo” step and the answer.
+        </div>
+
+        <div class="subcard">
+          <strong>Module 3 – Using Multiplication &amp; Division</strong><br />
+          Show worked examples such as <code>3a = 15</code> and <code>b / 2 = 8</code>, again showing the
+          inverse operation and final answer.
+        </div>
+      </section>
+
+      <!-- Right column: objectives & question list -->
+      <section class="card">
+        <h2>Overview</h2>
+        <h3>Learning Objectives</h3>
+        <ul>
+          <li><span class="label">LO1</span>Identify the goal of solving a basic equation.</li>
+          <li><span class="label">LO2</span>Solve one‑step equations using addition or subtraction.</li>
+          <li><span class="label">LO3</span>Solve one‑step equations using multiplication or division.</li>
+        </ul>
+
+        <h3 style="margin-top: 10px;">Pre‑ / Post‑Test Items</h3>
+        <ul>
+          <li><span class="label">Q1</span>Concept: main goal when solving an equation like <code>x - 3 = 8</code>.</li>
+          <li><span class="label">Q2</span>Compute: solve <code>x + 5 = 12</code>.</li>
+          <li><span class="label">Q3</span>Compute: solve <code>y - 4 = 10</code>.</li>
+          <li><span class="label">Q4</span>Compute: solve <code>3a = 15</code>.</li>
+          <li><span class="label">Q5</span>Compute: solve <code>b / 2 = 8</code>.</li>
+        </ul>
+
+        <p class="tiny">
+          You can copy‑paste the exact question wording and options from your project document into the form.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
